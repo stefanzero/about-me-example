@@ -1,0 +1,141 @@
+body {
+  background-color: white;
+  font:
+    16px "Bricolage Grotesque",
+    sans-serif;
+  margin-bottom: 50%;
+}
+.my-container,
+.my-nav-container {
+  display: flex;
+  max-width: 1024px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0 1rem;
+  container-type: inline-size;
+}
+.my-nav-container {
+  flex-direction: row;
+}
+
+.my-container {
+  flex-direction: column;
+  article {
+    font-size: clamp(1rem, 1.5vw + 0.5rem, 2rem);
+    /* at width 1024 */
+    font-size: 1.2rem;
+    /* at width 500 */
+    font-size: 0.8rem;
+    /* 
+    use font-size calculator web site
+    https://www.marcbacon.com/tools/clamp-calculator/
+    at width 500, font-size: 0.8rem;
+    at width 1024, font-size: 1.2rem;
+    */
+    font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem);
+    padding: 2em;
+    h2 {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    h3 {
+      font-size: 1.5em;
+      /* text-align: center; */
+      font-weight: bold;
+      margin-bottom: 0.5em;
+    }
+    figure {
+      padding: 0 2em;
+      /* width: 100cqw; */
+    }
+  }
+}
+footer {
+  padding: 2rem 0;
+  background-color: black;
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  p {
+    margin: 0;
+  }
+}
+/*
+make navbar links right-aligned
+*/
+.navbar .container {
+  justify-content: space-between;
+}
+/*
+override bootstrap so navbar-collapse doesn't grow with content
+*/
+.navbar-collapse {
+  flex-grow: 0;
+}
+/* this is equivalent to bootstrap's .align-items-center class */
+.vertical-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* this is equivalent to bootstrap's .rounded-circle class */
+.circle-container {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid black;
+  position: relative;
+}
+/*
+ bootstrap's .img-fluid class accompanies this with .img-fluid class
+ which uses width: 100% and height: auto.
+ if the image has height > width, object-fit: cover will crop the image
+ */
+.image-cover {
+  object-fit: cover;
+  width: 100%;
+}
+.my-list {
+  /* 1.2% of the viewport width */
+  /* font-size: 1.2vw;  */
+  max-width: 50ch; /* 50 character units */
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+.my-list li {
+  margin-bottom: 1rem;
+}
+
+@media only screen and (min-width: 576px) {
+  /* styles for small screens and up */
+}
+.my-col-sm-6,
+.my-col-md-6 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+.my-col-sm-12,
+.my-col-md-12 {
+  flex: 0 0 auto;
+  width: 100%;
+}
+/*
+medium screen and up
+*/
+@media only screen and (min-width: 768px) {
+  .my-col-md-6 {
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  /* styles for medium screens and up */
+  .my-list {
+    /* font-size: 2.4vw; */
+    max-width: 100ch;
+  }
+}
