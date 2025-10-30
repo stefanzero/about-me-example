@@ -1,9 +1,11 @@
 :root {
   --nav-height: 5rem;
   --nav-bg-color: white;
+  /* pick color from photo */
+  --bg-color: #b9cf9a;
 }
 body {
-  background-color: white;
+  background-color: var(--bg-color);
   font:
     16px "Bricolage Grotesque",
     sans-serif;
