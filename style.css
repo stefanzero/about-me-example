@@ -35,8 +35,12 @@ body {
 .my-nav-container {
   flex-direction: row;
   padding: 0rem 2rem;
+  /* make navbar links right-aligned */
   justify-content: space-between;
   background-color: var(--nav-bg-color);
+  .nav-link.active {
+    font-weight: bold;
+  }
 }
 
 .my-brand-container {
@@ -105,18 +109,16 @@ footer {
   }
 }
 /*
-make navbar links right-aligned
-*/
-.navbar .container {
-  justify-content: space-between;
-}
-/*
 override bootstrap so navbar-collapse doesn't grow with content
 */
 .navbar-collapse {
   flex-grow: 0;
 }
-main > article {
+#header,
+#bio,
+#education,
+#experience,
+#contact {
   scroll-margin: var(--nav-height) 0 0 0;
 }
 /* this is equivalent to bootstrap's .align-items-center class */
