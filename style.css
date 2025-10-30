@@ -116,6 +116,9 @@ override bootstrap so navbar-collapse doesn't grow with content
 .navbar-collapse {
   flex-grow: 0;
 }
+main > article {
+  scroll-margin: var(--nav-height) 0 0 0;
+}
 /* this is equivalent to bootstrap's .align-items-center class */
 .vertical-center {
   display: flex;
