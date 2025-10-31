@@ -221,6 +221,16 @@ set the default column widths to 100%
   width: 100%;
 }
 /*
+use a media query to reduce the bio figure width
+for small screens
+*/
+@media only screen and (max-width: 768px) {
+  .bio figure {
+    width: 80%;
+    margin: 1em auto 2em auto;
+  }
+}
+/*
 use a media query to set the column widths for
 medium screen and up to 2 columns across
 */
