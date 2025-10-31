@@ -20,6 +20,7 @@ body {
     sans-serif;
   /* a large bottom margin allows link navigation to the contacts section */
   margin-bottom: 50%;
+  margin-bottom: 100vh;
 }
 /*
 since the navbar is position fixed, add a top margin so the window will be 
@@ -49,6 +50,10 @@ override bootstrap so navbar-collapse doesn't grow with content
 */
 .navbar-collapse {
   flex-grow: 0;
+}
+.navbar-collapse.show {
+  margin: 1.5rem 0 0rem 0;
+  padding: 0.5rem;
 }
 .my-container,
 .my-nav-container {
