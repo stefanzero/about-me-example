@@ -12,7 +12,6 @@
   /* increase lightness*/
   --bg-color: hsl(85, 36%, 90%);
   --max-width: 1024px;
-  --min-width: 500px;
 }
 body {
   background-color: var(--bg-color);
@@ -58,7 +57,6 @@ override bootstrap so navbar-collapse doesn't grow with content
 .my-nav-container {
   display: flex;
   max-width: var(--max-width);
-  min-width: var(--min-width);
   width: 90%;
   margin: 0 auto;
   padding: 0 1rem;
@@ -219,6 +217,16 @@ set the default column widths to 100%
 .my-col-md-12 {
   flex: 0 0 auto;
   width: 100%;
+}
+/*
+use a media query to increase the container width
+for small screens
+*/
+@media only screen and (max-width: 500px) {
+  .my-container,
+  .my-nav-container {
+    width: 100%;
+  }
 }
 /*
 use a media query to reduce the bio figure width
