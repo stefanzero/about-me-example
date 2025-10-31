@@ -1,8 +1,4 @@
 :root {
-  /* nav-height must be based on a fixed value, since the scroll-margin of
-  the internal links is based on the nav-height */
-  --nav-height: 5rem;
-  --nav-bg-color: white;
   /* --bg-color: white; */
   /* change the bg-color as appropriate for your images */
   /* pick color of notebook from photo */
@@ -12,6 +8,14 @@
   /* increase lightness*/
   --bg-color: hsl(85, 36%, 90%);
   --max-width: 1024px;
+  /* nav-height must be based on a fixed value, since the scroll-margin of
+  the internal links is based on the nav-height */
+  --nav-height: 5rem;
+  --nav-bg-color: white;
+  --header-color: hsl(210, 17%, 98%);
+  --header-bg-color: hsl(210, 11%, 15%);
+  --card-color: hsl(210, 11%, 15%);
+  --card-bg-color: hsl(210, 17%, 98%);
 }
 body {
   background-color: var(--bg-color);
@@ -152,7 +156,9 @@ override bootstrap so navbar-collapse doesn't grow with content
   /* this makes the height of the header dependent on the viewport width */
   padding: 2vw 0;
   background-color: black;
+  background-color: var(--header-bg-color);
   color: white;
+  color: var(--header-color);
   text-align: center;
   h1 {
     font-size: 2em;
@@ -204,7 +210,6 @@ footer {
   aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 50%;
-  border: 2px solid black;
   position: relative;
 }
 /*

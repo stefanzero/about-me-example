@@ -35,7 +35,10 @@
   </head>
   <body>
     <nav class="my-nav my-fixed-top">
-      <!--  class navbar-expand-sm causes the navbar to collapse on small screens -->
+      <!--  
+       bootstrap class navbar-expand-sm causes the navbar to collapse on small screens 
+       by using a media query to display either the navbar-toggler or navbar-collapse
+      -->
       <div class="navbar navbar-expand-sm my-nav-container">
         <div class="my-brand-container">
           <a class="navbar-brand" href="#header">About Me</a>
@@ -69,11 +72,11 @@
         </div>
       </div>
     </nav>
-    <header id="header" class="my-page-header bg-dark text-light">
+    <header id="header" class="my-page-header">
       <h1 class="text-center">Ed Jones</h1>
     </header>
     <main class="my-container">
-      <article id="bio" class="card bg-light bio">
+      <article id="bio" class="card my-bg-light bio">
         <header class="">
           <h2 class="text-center">My Bio</h2>
         </header>
@@ -82,7 +85,7 @@
             <img
               src="./assets/student-park-bench-cropped.png"
               alt="my-image"
-              class="img-fluid rounded-circle"
+              class="image-cover circle-container"
             >
           </figure>
           <section class="my-col-md-6 my-col-sm-12">
@@ -241,11 +244,11 @@
       If you do not use any Bootstrap components that require JavaScript, 
       you can remove the following script 
     -->
-    <script
+    <!-- <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <script src="./script.js"></script>
   </body>
 </html>
