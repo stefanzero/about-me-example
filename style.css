@@ -77,12 +77,15 @@ override bootstrap so navbar-collapse doesn't grow with content
       https://www.marcbacon.com/tools/clamp-calculator/
     plug in these numbers on the web form:
       at width 500, font-size: 0.8rem;
+      at width 500, font-size: 1rem;
       at width 1024, font-size: 1.2rem;
     and the clamp function is generated
     */
-  font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem);
+  /* font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem); */
+  font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem);
   a {
-    font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem);
+    /* font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem); */
+    font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem);
   }
   /*
   javascript is used to add the active class to the clicked nav-link
@@ -107,7 +110,8 @@ override bootstrap so navbar-collapse doesn't grow with content
   flex-direction: column;
   article {
     /* set a variable font size */
-    font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem);
+    /* font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem); */
+    font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem);
     /* note that the rest of the sizes are specified in em units, so
     they reflect the font-size set by the clamp function */
     padding: 2em;
@@ -134,7 +138,8 @@ override bootstrap so navbar-collapse doesn't grow with content
   */
   container-type: inline-size;
   /* set a variable font size */
-  font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem);
+  /* font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem); */
+  font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem);
   margin: var(--nav-height) 0 0 0;
   /* this makes the height of the header dependent on the viewport width */
   padding: 2vw 0;
@@ -152,7 +157,8 @@ footer {
   which are used in the clamp function
   */
   container-type: inline-size;
-  font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem);
+  /* font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem); */
+  font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem);
   padding: 2em 0;
   background-color: black;
   color: white;
@@ -164,6 +170,13 @@ footer {
   p {
     margin: 0;
   }
+}
+/* this is equivalent to bootstrap's .fixed-top class */
+.my-fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
 }
 /* this is equivalent to bootstrap's .justify-content-center class */
 .horizontal-center {
