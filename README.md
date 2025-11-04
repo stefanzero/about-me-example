@@ -1,14 +1,14 @@
-# About Me Web Page Example using Bootstrap
+# About Me Web Page Example using Minimal Bootstrap
 
 =====================================
 
-A simple web page showcasing an About Me web page using Bootstrap.
+A simple web page showcasing an About Me web page using Minimal Bootstrap.
 
 ## Table of Contents
 
 ---
 
-- [About Me Web Page Example using Bootstrap](#about-me-web-page-example-using-bootstrap)
+- [About Me Web Page Example using Minimal Bootstrap](#about-me-web-page-example-using-minimal-bootstrap)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
@@ -19,13 +19,14 @@ A simple web page showcasing an About Me web page using Bootstrap.
 
 ---
 
-This project is a simple web page that showcases an About Me web page.
+This project is a simple web page that showcases an About Me web page that uses Minimal Bootstrap.
 
 ## Features
 
 ---
 
-- Responsive design using Bootstrap
+- Responsive design using Media Queries
+- Bootstrap components used for NavBar and Card
 - Simple and clean layout
 - Includes contact information with email and LinkedIn links
 
@@ -42,7 +43,7 @@ This project is a simple web page that showcases an About Me web page.
 
 ---
 
-1. Clone the repository using `git clone https://github.com/stefanzero/bootstrap-about-me-example.git`
+1. Clone the repository using `git clone https://github.com/stefanzero/about-me-example.git`
 2. Open the `index.html` file in a web browser to view the page
 
 ## License
@@ -64,4 +65,4 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 ---
 
 Deployed on GitHub Pages:
-[Bootstrap About Me Example](https://stefanzero.github.io/bootstrap-about-me-example/)
+[Bootstrap About Me Example](https://stefanzero.github.io/about-me-example/)
