@@ -29,8 +29,37 @@ body {
   margin-bottom: 50%;
   margin-bottom: 100vh;
 }
+h1 {
+  /* using em makes the font size responsive to the viewport width */
+  font-size: 2em;
+  margin: 0;
+}
+h2 {
+  text-align: center;
+  font-size: 1.75em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+h3 {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+article {
+  padding: 2em;
+  margin-bottom: 0.5rem;
+}
+figure {
+  padding: 0 2em;
+}
+/* remove default margin on the last paragraph since we are adding
+padding to the article */
+p:last-of-type {
+  margin-bottom: 0;
+}
+
 /*
-since the navbar is position fixed, add a top margin so the window will be 
+since the navbar is position fixed, add a top scroll-margin so the window will be 
 position below the navbar at each nav-link
 is
 */
@@ -56,6 +85,7 @@ override bootstrap so navbar-collapse doesn't grow with content
 .navbar-collapse {
   flex-grow: 0;
 }
+/* this is the navbar menu after the toggle button is clicked */
 .navbar-collapse.show {
   margin: 1.5rem 0 0rem 0;
   padding: 0.5rem;
@@ -111,60 +141,7 @@ override bootstrap so navbar-collapse doesn't grow with content
 }
 .my-container {
   flex-direction: column;
-  article {
-    padding: 2em;
-    margin-bottom: 0.5rem;
-    h2 {
-      text-align: center;
-      font-size: 1.75em;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    h3 {
-      font-size: 1.5em;
-      font-weight: bold;
-      margin-bottom: 0.5em;
-    }
-    figure {
-      padding: 0 2em;
-    }
-  }
-  .my-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    /* 
-    by setting a negative margin on the parent element, 
-    and equally-sized positive padding on each child element,
-    a gutter between children is created without extras spacing
-    on the ends
-    */
-    margin: -0.75rem;
-    padding: 0;
-    .my-col-sm-12,
-    .my-col-md-12,
-    .my-col-md-6 {
-      margin: 0;
-      padding: 0.75rem;
-    }
-    .my-col-sm-6:last-child,
-    .my-col-md-6:last-child,
-    .my-col-sm-12:last-child,
-    .my-col-md-12:last-child {
-      padding-bottom: 0;
-    }
-  }
-  /* .my-row:last-child {
-    margin-bottom: -0.75rem;
-    padding-bottom: 0;
-  } */
 }
-/* remove default margin on the last paragraph since we are adding
-padding to the article */
-p:last-of-type {
-  margin-bottom: 0;
-}
-
 .my-page-header {
   /*
   the <header> element is display: block by default, units of
@@ -178,11 +155,6 @@ p:last-of-type {
   background-color: var(--header-bg-color);
   color: var(--header-color);
   text-align: center;
-  h1 {
-    /* using em makes the font size responsive to the viewport width */
-    font-size: 2em;
-    margin: 0;
-  }
 }
 /* this is equivalent to bootstrap's .fixed-top class */
 .my-fixed-top {
@@ -224,13 +196,14 @@ p:last-of-type {
   position: relative;
 }
 /*
- bootstrap's .img-fluid class accompanies this with .img-fluid class
+ this is equivalent to bootstrap's .img-fluid class
  which uses width: 100% and height: auto.
  if the image has height > width, object-fit: cover will crop the image
  */
 .image-cover {
   object-fit: cover;
   width: 100%;
+  height: auto;
 }
 /* 
 content in the .bio and .education articles are put in lists because
@@ -257,10 +230,8 @@ special styling for the experience article
   h3 {
     border-bottom: 2px solid var(--secondary-color);
   }
-  .my-row {
-    .my-list {
-      line-height: normal;
-    }
+  .my-list {
+    line-height: normal;
   }
 }
 
@@ -285,50 +256,41 @@ special styling for the experience article
   }
 }
 /*
-set the column widths
+define the grid system
 */
-.my-container {
-  .my-row {
-    .my-col-sm-12 {
-      flex: 0 0 auto;
-      width: 100%;
-    }
-    .my-col-sm-6 {
-      flex: 0 0 auto;
-      width: 50%;
-    }
-  }
+.my-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* 
+    by setting a negative margin on the parent element, 
+    and equally-sized positive padding on each child element,
+    a gutter between children is created without extras spacing
+    on the ends
+    */
+  margin: 0 -0.75rem;
+  padding: 0;
 }
-
-/*
-use a media query to set the column widths for
-medium screen and up to 2 columns across
-*/
-@media only screen and (min-width: 768px) {
-  .my-container {
-    .my-row {
-      margin: 0 -1.5rem;
-
-      .my-col-sm-12,
-      .my-col-md-12 {
-        padding: 0 1.5rem;
-        flex: 0 0 auto;
-        width: 100%;
-      }
-      .my-col-sm-6,
-      .my-col-md-6 {
-        padding: 0 1.5rem;
-        flex: 0 0 auto;
-        width: 50%;
-      }
-      .my-col-sm-6:last-child,
-      .my-col-sm-12:last-child,
-      .my-col-md-6:last-child,
-      .my-col-md-12:last-child {
-        padding-bottom: 0;
-      }
-    }
-  }
+.my-row:last-child {
+  margin-bottom: 0;
+}
+.my-col-6,
+.my-col-12 {
+  flex: 0 0 auto;
+  margin: 0;
+  padding: 0.75rem;
+}
+.my-col-6:last-child,
+.my-col-md-6:last-child,
+.my-col-12:last-child,
+.my-col-md-12:last-child {
+  padding-bottom: 0;
+}
+.my-col-12 {
+  width: 100%;
+}
+.my-col-6 {
+  width: 50%;
 }
 
 /*
@@ -336,28 +298,44 @@ Use a media query to reduce the bio figure width for small screens.
 If there are other figures that have aspect ratio (w/h) > 0.8 or so,
 the figure width should be reduced.
 */
-@media only screen and (max-width: 768px) {
-  .my-container {
-    article {
-      /*
-      */
-      .my-row {
-        margin-top: 0;
-        margin-bottom: 0;
-        padding: 0;
-      }
-    }
-    .bio {
-      .my-row {
-        figure {
-          width: 80%;
-          margin: 1em auto 2em auto;
-          padding: 0 2rem;
-        }
-      }
+@media only screen and (max-width: 767px) {
+  .bio {
+    figure {
+      width: 80%;
+      margin: 1em auto 2em auto;
+      padding: 0 2rem;
     }
   }
 }
+/*
+use a media query to set the column widths for
+medium screen and up to 2 columns across
+*/
+@media only screen and (min-width: 768px) {
+  .my-row {
+    margin: 0 -1.5rem;
+  }
+
+  .my-col-12,
+  .my-col-md-12 {
+    padding: 1.5rem;
+    flex: 0 0 auto;
+    width: 100%;
+  }
+  .my-col-6,
+  .my-col-md-6 {
+    padding: 1.5rem;
+    flex: 0 0 auto;
+    width: 50%;
+  }
+  .my-col-6:last-child,
+  .my-col-12:last-child,
+  .my-col-md-6:last-child,
+  .my-col-md-12:last-child {
+    padding-bottom: 0;
+  }
+}
+
 /*
 use a media query to increase the container width
 for small screens (phones)
