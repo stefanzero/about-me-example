@@ -14,8 +14,11 @@
   --nav-bg-color: white;
   --header-color: hsl(210, 17%, 98%);
   --header-bg-color: hsl(210, 11%, 15%);
+  --secondary-color: rgba(108, 117, 125, 1);
   --card-color: hsl(210, 11%, 15%);
   --card-bg-color: hsl(210, 17%, 98%);
+  --card-border-color: hsla(0, 0%, 0%, 0.167);
+  --card-border-radius: 0.5rem;
 }
 body {
   background-color: var(--bg-color);
@@ -45,8 +48,6 @@ is
   display: flex;
   align-items: center;
   padding: 2rem 0;
-  /* the fixed navbar must be on a higher z level than the content */
-  z-index: 2;
   border-bottom: 1px solid black;
 }
 /*
@@ -71,6 +72,16 @@ override bootstrap so navbar-collapse doesn't grow with content
   which are used in the clamp function
   */
   container-type: inline-size;
+  /* 
+    use the font-size calculator web site:
+      https://www.marcbacon.com/tools/clamp-calculator/
+    plug in these numbers on the web form:
+      at width 500, font-size: 0.9rem;
+      at width 1024, font-size: 1.2rem;
+    and the clamp function is generated
+    replace "vw" with "cqw" to use the container width
+    */
+  font-size: clamp(0.9rem, 0.614rem + 0.916cqw, 1.2rem);
 }
 .my-nav-container {
   flex-direction: row;
@@ -78,25 +89,6 @@ override bootstrap so navbar-collapse doesn't grow with content
   /* make navbar links right-aligned */
   justify-content: space-between;
   background-color: var(--nav-bg-color);
-  /* 
-    use the font-size calculator web site:
-      https://www.marcbacon.com/tools/clamp-calculator/
-    plug in these numbers on the web form:
-      at width 500, font-size: 0.8rem;
-      at width 500, font-size: 1rem;
-      at width 500, font-size: 0.9rem;
-      at width 1024, font-size: 1.2rem;
-    and the clamp function is generated
-    replace "rem" with "cqw"
-    */
-  /* font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem); */
-  /* font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem); */
-  font-size: clamp(0.9rem, 0.614rem + 0.916vw, 1.2rem);
-  a {
-    /* font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem); */
-    /* font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem); */
-    font-size: clamp(0.9rem, 0.614rem + 0.916vw, 1.2rem);
-  }
   /*
   javascript is used to add the active class to the clicked nav-link
   */
@@ -108,6 +100,7 @@ override bootstrap so navbar-collapse doesn't grow with content
 .my-brand-container {
   /* use a flexbox to align the navbar links to the right */
   display: flex;
+  /* this pushes the brand to the right and the links to the left */
   justify-content: space-between;
   width: 100%;
   height: 100%;
@@ -119,12 +112,6 @@ override bootstrap so navbar-collapse doesn't grow with content
 .my-container {
   flex-direction: column;
   article {
-    /* set a variable font size */
-    /* font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem); */
-    /* font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem); */
-    font-size: clamp(0.9rem, 0.614rem + 0.916vw, 1.2rem);
-    /* note that the rest of the sizes are specified in em units, so
-    they reflect the font-size set by the clamp function */
     padding: 2em;
     margin-bottom: 0.5rem;
     h2 {
@@ -142,47 +129,58 @@ override bootstrap so navbar-collapse doesn't grow with content
       padding: 0 2em;
     }
   }
+  .my-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    /* 
+    by setting a negative margin on the parent element, 
+    and equally-sized positive padding on each child element,
+    a gutter between children is created without extras spacing
+    on the ends
+    */
+    margin: -0.75rem;
+    padding: 0;
+    .my-col-sm-12,
+    .my-col-md-12,
+    .my-col-md-6 {
+      margin: 0;
+      padding: 0.75rem;
+    }
+    .my-col-sm-6:last-child,
+    .my-col-md-6:last-child,
+    .my-col-sm-12:last-child,
+    .my-col-md-12:last-child {
+      padding-bottom: 0;
+    }
+  }
+  /* .my-row:last-child {
+    margin-bottom: -0.75rem;
+    padding-bottom: 0;
+  } */
 }
+/* remove default margin on the last paragraph since we are adding
+padding to the article */
+p:last-of-type {
+  margin-bottom: 0;
+}
+
 .my-page-header {
   /*
-  defining the container type sets the value of cqw and cqh
+  the <header> element is display: block by default, units of
+  vw and cqw are the same since width is 100%
   */
-  container-type: inline-size;
-  /* set a variable font size */
-  /* font-size: clamp(0.8rem, 0.418rem + 1.221vw, 1.2rem); */
-  /* font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem); */
+  /* use same clamp function as the other containers */
   font-size: clamp(0.9rem, 0.614rem + 0.916vw, 1.2rem);
   margin: var(--nav-height) 0 0 0;
   /* this makes the height of the header dependent on the viewport width */
   padding: 2vw 0;
-  background-color: black;
   background-color: var(--header-bg-color);
-  color: white;
   color: var(--header-color);
   text-align: center;
   h1 {
+    /* using em makes the font size responsive to the viewport width */
     font-size: 2em;
-    margin: 0;
-  }
-}
-footer {
-  /*
-  defining the container type sets the value of cqw and cqh,
-  which are used in the clamp function
-  */
-  container-type: inline-size;
-  /* font-size: clamp(0.8rem, 0.418rem + 1.221cqw, 1.2rem); */
-  /* font-size: clamp(1rem, 0.809rem + 0.611cqw, 1.2rem); */
-  font-size: clamp(0.9rem, 0.614rem + 0.916vw, 1.2rem);
-  padding: 2em 0;
-  background-color: black;
-  color: white;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  p {
     margin: 0;
   }
 }
@@ -191,7 +189,20 @@ footer {
   position: fixed;
   top: 0;
   left: 0;
-  right: 0;
+  /* the fixed navbar must be on a higher z level than the content */
+  z-index: 2;
+}
+/* this is equivalent to bootstrap's card class */
+.my-card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  position: relative;
+  color: var(--card-color);
+  background-color: var(--card-bg-color);
+  word-wrap: break-word;
+  border: 1px solid var(--card-border-color);
+  border-radius: var(--card-border-radius);
 }
 /* this is equivalent to bootstrap's .justify-content-center class */
 .horizontal-center {
@@ -221,62 +232,139 @@ footer {
   object-fit: cover;
   width: 100%;
 }
+/* 
+content in the .bio and .education articles are put in lists because
+it naturally groups related items together
+*/
 .my-list {
-  /*
-  setting the width of the list allows the text to be aligned to a 
-  constant location on the left while forcing the text to wrap at 
-  the specified width
-  */
-  max-width: 50ch; /* 50 character units */
+  margin: 0;
+  padding: 0;
+  list-style: none;
   word-wrap: break-word;
   line-height: 1.4;
-}
-.my-list li {
-  margin-bottom: 1rem;
+  li {
+    margin-bottom: 1rem;
+  }
+  li:last-child {
+    margin-bottom: 0;
+  }
 }
 
 /*
-set the default column widths to 100%
+special styling for the experience article
 */
-.my-col-sm-6,
-.my-col-md-6,
-.my-col-sm-12,
-.my-col-md-12 {
-  flex: 0 0 auto;
-  width: 100%;
+.experience {
+  h3 {
+    border-bottom: 2px solid var(--secondary-color);
+  }
+  .my-row {
+    .my-list {
+      line-height: normal;
+    }
+  }
 }
-/*
-use a media query to increase the container width
-for small screens
-*/
-@media only screen and (max-width: 500px) {
-  .my-container,
-  .my-nav-container {
-    width: 100%;
+
+.my-footer {
+  /*
+  the <footer> element is display: block by default, units of
+  vw and cqw are the same since width is 100%
+  */
+  /* use same clamp function as the other containers */
+  font-size: clamp(0.9rem, 0.614rem + 0.916vw, 1.2rem);
+  padding: 2em 0;
+  background-color: var(--header-bg-color);
+  color: var(--header-color);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* if there are several items in the footer, use a <ul> element */
+  p {
+    margin: 0;
   }
 }
 /*
-use a media query to reduce the bio figure width
-for small screens
+set the column widths
 */
-@media only screen and (max-width: 768px) {
-  .bio figure {
-    width: 80%;
-    margin: 1em auto 2em auto;
+.my-container {
+  .my-row {
+    .my-col-sm-12 {
+      flex: 0 0 auto;
+      width: 100%;
+    }
+    .my-col-sm-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
   }
 }
+
 /*
 use a media query to set the column widths for
 medium screen and up to 2 columns across
 */
 @media only screen and (min-width: 768px) {
-  .my-col-md-6 {
-    flex: 0 0 auto;
-    width: 50%;
+  .my-container {
+    .my-row {
+      margin: 0 -1.5rem;
+
+      .my-col-sm-12,
+      .my-col-md-12 {
+        padding: 0 1.5rem;
+        flex: 0 0 auto;
+        width: 100%;
+      }
+      .my-col-sm-6,
+      .my-col-md-6 {
+        padding: 0 1.5rem;
+        flex: 0 0 auto;
+        width: 50%;
+      }
+      .my-col-sm-6:last-child,
+      .my-col-sm-12:last-child,
+      .my-col-md-6:last-child,
+      .my-col-md-12:last-child {
+        padding-bottom: 0;
+      }
+    }
   }
-  /* styles for medium screens and up */
-  .my-list {
-    /* let the list width take the full width of the column */
-    max-width: 100ch;
+}
+
+/*
+Use a media query to reduce the bio figure width for small screens.  
+If there are other figures that have aspect ratio (w/h) > 0.8 or so,
+the figure width should be reduced.
+*/
+@media only screen and (max-width: 768px) {
+  .my-container {
+    article {
+      /*
+      */
+      .my-row {
+        margin-top: 0;
+        margin-bottom: 0;
+        padding: 0;
+      }
+    }
+    .bio {
+      .my-row {
+        figure {
+          width: 80%;
+          margin: 1em auto 2em auto;
+          padding: 0 2rem;
+        }
+      }
+    }
+  }
+}
+/*
+use a media query to increase the container width
+for small screens (phones)
+*/
+@media only screen and (max-width: 500px) {
+  .my-container,
+  .my-nav-container {
+    width: 100%;
   }
 }
