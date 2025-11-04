@@ -19,6 +19,9 @@
   --card-bg-color: hsl(210, 17%, 98%);
   --card-border-color: hsla(0, 0%, 0%, 0.167);
   --card-border-radius: 0.5rem;
+  /* spacing between column elements */
+  --gutter: 0.75rem;
+  --gutter-md: 1.5rem;
 }
 body {
   background-color: var(--bg-color);
@@ -269,6 +272,7 @@ define the grid system
     on the ends
     */
   margin: 0 -0.75rem;
+  margin: 0 calc(-1 * var(--gutter));
   padding: 0;
 }
 .my-row:last-child {
@@ -278,7 +282,7 @@ define the grid system
 .my-col-12 {
   flex: 0 0 auto;
   margin: 0;
-  padding: 0.75rem;
+  padding: var(--gutter);
 }
 .my-col-6:last-child,
 .my-col-md-6:last-child,
@@ -313,18 +317,18 @@ medium screen and up to 2 columns across
 */
 @media only screen and (min-width: 768px) {
   .my-row {
-    margin: 0 -1.5rem;
+    margin: 0 calc(-1 * var(--gutter-md));
   }
 
   .my-col-12,
   .my-col-md-12 {
-    padding: 1.5rem;
+    padding: var(--gutter-md);
     flex: 0 0 auto;
     width: 100%;
   }
   .my-col-6,
   .my-col-md-6 {
-    padding: 1.5rem;
+    padding: var(--gutter-md);
     flex: 0 0 auto;
     width: 50%;
   }
