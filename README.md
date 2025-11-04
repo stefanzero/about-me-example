@@ -1,14 +1,14 @@
-# About Me Web Page Example using Bootstrap
+# About Me Web Page Example using Bootstrap Navbar
 
 =====================================
 
-A simple web page showcasing an About Me web page using Bootstrap.
+A simple web page showcasing an About Me web page using the Bootstrap Navbar.
 
 ## Table of Contents
 
 ---
 
-- [About Me Web Page Example using Bootstrap](#about-me-web-page-example-using-bootstrap)
+- [About Me Web Page Example using Bootstrap Navbar](#about-me-web-page-example-using-bootstrap-navbar)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Technologies Used](#technologies-used)
@@ -25,8 +25,13 @@ This project is a simple web page that showcases an About Me web page.
 
 ---
 
-- Responsive design using Bootstrap
+- Responsive design using Bootstrap fixed Navbar
 - Simple and clean layout
+  - 2 columns on medium and larger screens
+  - 1 column on smaller screens
+- Extensive use of CSS Custom Properties to allow for easy customization
+- Custom media queries to replicate the Bootstrap grid system
+- JavaScript event handlers for collapsible navbar
 - Includes contact information with email and LinkedIn links
 
 ## Technologies Used
