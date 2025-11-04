@@ -81,21 +81,6 @@ is
   align-items: center;
   padding: 2rem 0;
   border-bottom: 1px solid black;
-  li {
-    padding: 0 0.375rem;
-  }
-}
-.my-navbar-toggler-icon {
-  display: inline-block;
-  background-image: url("./assets/navbar-toggler-icon.svg");
-  width: 1.5em;
-  height: 1.5em;
-}
-.my-navbar-collapse {
-  display: flex;
-}
-.my-navbar-collapse:not(.show) {
-  display: none;
 }
 /*
 override bootstrap so navbar-collapse doesn't grow with content
@@ -107,11 +92,6 @@ override bootstrap so navbar-collapse doesn't grow with content
 .navbar-collapse.show {
   margin: 1.5rem 0 0rem 0;
   padding: 0.5rem;
-}
-@media (min-width: 576px) {
-  .my-navbar-expand-sm .navbar-collapse {
-    display: flex;
-  }
 }
 .my-container,
 .my-nav-container {
