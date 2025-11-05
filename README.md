@@ -1,14 +1,20 @@
-# About Me Web Page Example using Bootstrap Navbar
+# About Me Web Page Example using the Bootstrap Navbar
 
 =====================================
 
-A simple web page showcasing an About Me web page using the Bootstrap Navbar.
+A simple web page showcasing an About Me web page using the Bootstrap collapsible fixed Navbar. The Bootstrap JavaScript is replaced with vanilla JavaScript, which handles additional functionality such as setting the active navigation link. It also improves the toggling behavior of the navbar by adding additional click handlers.
+
+The Bootstrap grid system is replicated using custom media queries. The content is divided into 2 columns on medium and larger screens and 1 column on smaller screens. Gutters are used to add spacing between columns.
+
+The width of the nav and main containers are responsive by using percent **%** units. The **max-width** is set to a fixed pixel value according to your design. Here, the max-width is set to **1024px** (a large tablet). For web pages with much greater content, you need to add more columns and a greater max-width.
+
+The font size is responsive by using the CSS clamp function.
 
 ## Table of Contents
 
 ---
 
-- [About Me Web Page Example using Bootstrap Navbar](#about-me-web-page-example-using-bootstrap-navbar)
+- [About Me Web Page Example using the Bootstrap Navbar](#about-me-web-page-example-using-the-bootstrap-navbar)
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Customization](#customization)
@@ -106,5 +112,4 @@ This project is licensed under the MIT License. See the [LICENSE.md](LICENSE.md)
 
 ---
 
-Deployed on GitHub Pages:
-[Bootstrap About Me Example](https://stefanzero.github.io/bootstrap-about-me-example/)
+Deployed on GitHub Pages: [About Me Example](https://stefanzero.github.io/about-me-example/)
